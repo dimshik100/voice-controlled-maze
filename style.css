@@ -17,15 +17,6 @@ h1, p {
   padding: 20px;
 }
 
-div {
-  height: 100px;
-  overflow: auto;
-  position: absolute;
-  bottom: 0px;
-  right: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-}
 
 ul {
   margin: 0;
@@ -36,10 +27,11 @@ ul {
 }
 
 .commands-list {
-  width: 200px;
-  height: 200px;
+  width: 226px;
+  height: 226px;
   border: 1px solid black;
   overflow: scroll;
+  display: inline-block;
 }
 
 
@@ -53,4 +45,46 @@ ul {
   .speak-btn {
     display: block;
   }
+}
+
+
+
+/* maze stuff */
+#maze {
+  border-style: solid;
+  display: inline-block;
+}
+.block {
+  float: left;
+  height: 20px;
+  width: 20px;
+}
+.wall {
+  background-color: #000;
+}
+.me {
+  position: relative;
+}
+.me:after {
+  background-color: #23afee;
+  border-radius: 100%;
+  content: '';
+  height: 20px;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+.finish {
+  background-color: #f31d1d;
+}
+#complete {
+  display: none;
+  height: 360px;
+  left: 20%;
+  position: absolute;
+  right: 20%;
+  top: 50px;
+  width: 640px;
+  z-index: 1000;
+  background-color: red;
 }
