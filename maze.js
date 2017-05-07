@@ -1,9 +1,9 @@
-// maze generator from 
-// https://codepen.io/nicothin/pen/BzaQGZ
 
+/*
 var createMaze = function (hate, width, maze, walls, currentPosition) {
     hate = hate % 2 == 0 ? hate + 1 : hate;
     width = width % 2 == 0 ? width + 1 : width;
+
     document.getElementById('maze').setAttribute('style', 'height:' + hate * 20 + 'px; width:' + width * 20 + 'px');
     for (var y = 0; y < hate; y++) {
         maze[y] = [];
@@ -55,5 +55,93 @@ var createMaze = function (hate, width, maze, walls, currentPosition) {
 };
 
 createMaze(10, 10, [], [], [0, 0]);
+*/
 
 
+
+class Maze {
+    constructor(height, width, maze, walls, currentPosition) {
+        this.height = height % 2 == 0 ? height + 1 : height;
+        this.width = width % 2 == 0 ? width + 1 : width;
+        this.maze = maze;
+        this.walls = walls;
+        this.currentPosition = currentPosition;
+    }
+
+    createMaze() {
+        let self = this;
+
+        const mazeElement = document.getElementById('maze');
+        mazeElement.setAttribute('style', 'height:' + this.height * 20 + 'px; width:' + this.width * 20 + 'px');
+
+        for (var y = 0; y < this.height; y++) {
+            this.maze[y] = [];
+            for (var x = 0; x < this.width; this.maze[y][x++] = 'wall') {
+                var el = mazeElement.appendChild(document.createElement("div"));
+                el.className = 'block wall';
+                el.setAttribute('id', y + '-' + x);
+            }
+        }
+
+        this.amaze(this.currentPosition.y, this.currentPosition.x, true);
+
+
+        while (this.walls.length != 0) {
+            var randomWall = this.walls[Math.floor(Math.random() * this.walls.length)],
+                host = randomWall[2],
+                opposite = [(host[0] + (randomWall[0] - host[0]) * 2), (host[1] + (randomWall[1] - host[1]) * 2)];
+            if (this.valid(opposite[0], opposite[1])) {
+                if (this.maze[opposite[0]][opposite[1]] == 'maze') this.walls.splice(this.walls.indexOf(randomWall), 1);
+                else this.amaze(randomWall[0], randomWall[1], false), this.amaze(opposite[0], opposite[1], true);
+            } else this.walls.splice(this.walls.indexOf(randomWall), 1);
+        }
+
+        document.getElementById('0-0').className = 'block me';
+
+        document.getElementById((parseInt(this.height) - 1) + '-' + (parseInt(this.width) - 1)).className = 'block finish';
+
+        document.body.onkeydown = function (e) {
+            var newPosition = self.createNewPosition(e.keyCode);
+            if (self.valid(newPosition.y, newPosition.x) && self.maze[newPosition.y][newPosition.x] != 'wall') {
+                document.getElementById(self.currentPosition.y + '-' + self.currentPosition.x).className = 'block';
+                self.currentPosition = newPosition;
+                document.getElementById(self.currentPosition.y + '-' + self.currentPosition.x).className = 'block me';
+                if (self.isFinished()) {
+                    alert('finished')
+                    // document.getElementById('complete').setAttribute('style', 'display:block');
+                }
+            }
+        }
+
+    }
+
+createNewPosition(keyCode){
+    return {y: this.currentPosition.y + ((keyCode - 39) % 2), x: this.currentPosition.x + ((keyCode - 38) % 2)};
+}
+
+    amaze(y, x, addBlockWalls) {
+        let maze = this.maze;
+
+        maze[y][x] = 'maze';
+        document.getElementById(y + '-' + x).className = 'block';
+        if (addBlockWalls && this.valid(y + 1, x) && (this.maze[y + 1][x] == 'wall')) this.walls.push([y + 1, x, [y, x]]);
+        if (addBlockWalls && this.valid(y - 1, x) && (this.maze[y - 1][x] == 'wall')) this.walls.push([y - 1, x, [y, x]]);
+        if (addBlockWalls && this.valid(y, x + 1) && (this.maze[y][x + 1] == 'wall')) this.walls.push([y, x + 1, [y, x]]);
+        if (addBlockWalls && this.valid(y, x - 1) && (this.maze[y][x - 1] == 'wall')) this.walls.push([y, x - 1, [y, x]]);
+    }
+
+    valid(a, b) {
+        return (a < this.height && a >= 0 && b < this.width && b >= 0) ? true : false;
+    };
+
+    isFinished(){
+        return (this.currentPosition.y == this.height - 1 && this.currentPosition.x == this.width - 1);
+    }
+}
+
+
+
+let startPosition = {x:0,y:0};
+
+const maze = new Maze(10, 10, [], [], startPosition);
+maze.createMaze();
