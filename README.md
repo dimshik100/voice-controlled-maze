@@ -13,10 +13,11 @@ Check the [LIVE DEMO](https://dimshik100.github.io/voice-controlled-maze/)
 
 - The maze should be controlled with:
   - Voice commands
-  - Arrow keys
+  - Arrow keys - DONE
   - Swipe directions
-  - UI buttons
+  - UI buttons - DONE
 - Create finish screen / popup
 - Add visual feedback when doing illegal move?
 - Add voice control feedback when doing illegal move.
   - Voice feedback
+- Add support for multiple voice commands in one phrase - DONE

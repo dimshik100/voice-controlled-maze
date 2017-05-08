@@ -77,20 +77,39 @@ recognition.onresult = function (event) {
 }
 
 function matchCommand(command, confidence) {
+
+  console.log('command: ' + command + ' confidence: ' + confidence);
+
   // because a command can contain multiple words 
   // we need to split it.
   var words = command.split(' ');
 
   for (word of words) {
-    if (commands.indexOf(word) > 0 && confidence > 0.4) {
+    if (commands.indexOf(word) >= 0 && confidence > 0.4) {
       doCommand(word);
-      return;
+      // return;
     }
   }
 }
 
 function doCommand(command) {
   commandsList.innerHTML += '<li>' + command + '</li>';
+
+  // this might not be the correct place to call maze
+              switch (command) {
+                case 'up':
+                    maze.moveUp();
+                    break;
+                case 'down':
+                    maze.moveDown();
+                    break;
+                case 'right':
+                    maze.moveRight();
+                    break;
+                case 'left':
+                    maze.moveLeft();
+                    break;
+            }
 }
 
 recognition.onspeechend = function () {
