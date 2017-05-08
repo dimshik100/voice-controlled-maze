@@ -21,3 +21,4 @@ Check the [LIVE DEMO](https://dimshik100.github.io/voice-controlled-maze/)
 - Add voice control feedback when doing illegal move.
   - Voice feedback
 - Add support for multiple voice commands in one phrase - DONE
+- Store not finished mazes in local storage to let the player continue next time

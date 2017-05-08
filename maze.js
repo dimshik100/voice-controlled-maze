@@ -174,23 +174,27 @@ class Maze {
         // const newPosition = this.createNewPosition('down');
         this.movePlayer(this, this.currentPosition, newPosition);
     }
-        moveRight() {
+    moveRight() {
         const newPosition = { x: this.currentPosition.x + 1, y: this.currentPosition.y };
         // const newPosition = this.createNewPosition('down');
         this.movePlayer(this, this.currentPosition, newPosition);
     }
-        moveLeft() {
-        const newPosition = { x: this.currentPosition.x - 1, y: this.currentPosition.y};
+    moveLeft() {
+        const newPosition = { x: this.currentPosition.x - 1, y: this.currentPosition.y };
         // const newPosition = this.createNewPosition('down');
         this.movePlayer(this, this.currentPosition, newPosition);
     }
 }
 
 
+/**
+ * Creating the maze
+ */
 
 let startPosition = { x: 0, y: 0 };
-
-const maze = new Maze(10, 10, [], [], startPosition);
+const mazeWidth = 5;
+const mazeHeight = 5;
+const maze = new Maze(mazeHeight, mazeWidth, [], [], startPosition);
 maze.createMaze();
 
 
