@@ -66,13 +66,17 @@ class Maze {
         this.maze = maze;
         this.walls = walls;
         this.currentPosition = currentPosition;
+
+        // this is also set in the CSS under .block
+        this.blockHeight = 20;
+        this.blockWidth = 20;
     }
 
     createMaze() {
         let self = this;
 
         const mazeElement = document.getElementById('maze');
-        mazeElement.setAttribute('style', 'height:' + this.height * 20 + 'px; width:' + this.width * 20 + 'px');
+        mazeElement.setAttribute('style', 'height:' + this.height * this.blockHeight + 'px; width:' + this.width * this.blockWidth + 'px');
 
         for (var y = 0; y < this.height; y++) {
             this.maze[y] = [];
@@ -101,23 +105,43 @@ class Maze {
         document.getElementById((parseInt(this.height) - 1) + '-' + (parseInt(this.width) - 1)).className = 'block finish';
 
         document.body.onkeydown = function (e) {
-            var newPosition = self.createNewPosition(e.keyCode);
-            if (self.valid(newPosition.y, newPosition.x) && self.maze[newPosition.y][newPosition.x] != 'wall') {
-                document.getElementById(self.currentPosition.y + '-' + self.currentPosition.x).className = 'block';
-                self.currentPosition = newPosition;
-                document.getElementById(self.currentPosition.y + '-' + self.currentPosition.x).className = 'block me';
-                if (self.isFinished()) {
-                    alert('finished')
-                    // document.getElementById('complete').setAttribute('style', 'display:block');
-                }
+            switch (e.keyCode) {
+                case 38:
+                    self.moveUp();
+                    break;
+                case 40:
+                    self.moveDown();
+                    break;
+                case 39:
+                    self.moveRight();
+                    break;
+                case 37:
+                    self.moveLeft();
+                    break;
+            }
+            // var newPosition = self.createNewPosition(e.keyCode);
+            //self.movePlayer(self, self.currentPosition, newPosition);
+        }
+
+    }
+
+    movePlayer(maze, oldPosition, newPosition) {
+
+        if (maze.valid(newPosition.y, newPosition.x) && maze.maze[newPosition.y][newPosition.x] != 'wall') {
+
+            document.getElementById(oldPosition.y + '-' + oldPosition.x).className = 'block';
+            // update current position
+            maze.currentPosition = newPosition;
+            document.getElementById(newPosition.y + '-' + newPosition.x).className = 'block me';
+            if (maze.isFinished()) {
+                alert('finished')
+                // document.getElementById('complete').setAttribute('style', 'display:block');
             }
         }
 
     }
 
-createNewPosition(keyCode){
-    return {y: this.currentPosition.y + ((keyCode - 39) % 2), x: this.currentPosition.x + ((keyCode - 38) % 2)};
-}
+
 
     amaze(y, x, addBlockWalls) {
         let maze = this.maze;
@@ -134,14 +158,47 @@ createNewPosition(keyCode){
         return (a < this.height && a >= 0 && b < this.width && b >= 0) ? true : false;
     };
 
-    isFinished(){
+    isFinished() {
         return (this.currentPosition.y == this.height - 1 && this.currentPosition.x == this.width - 1);
+    }
+    /**
+     *  control functions
+     */
+    moveDown() {
+        const newPosition = { x: this.currentPosition.x, y: this.currentPosition.y + 1 };
+        // const newPosition = this.createNewPosition('down');
+        this.movePlayer(this, this.currentPosition, newPosition);
+    }
+    moveUp() {
+        const newPosition = { x: this.currentPosition.x, y: this.currentPosition.y - 1 };
+        // const newPosition = this.createNewPosition('down');
+        this.movePlayer(this, this.currentPosition, newPosition);
+    }
+        moveRight() {
+        const newPosition = { x: this.currentPosition.x + 1, y: this.currentPosition.y };
+        // const newPosition = this.createNewPosition('down');
+        this.movePlayer(this, this.currentPosition, newPosition);
+    }
+        moveLeft() {
+        const newPosition = { x: this.currentPosition.x - 1, y: this.currentPosition.y};
+        // const newPosition = this.createNewPosition('down');
+        this.movePlayer(this, this.currentPosition, newPosition);
     }
 }
 
 
 
-let startPosition = {x:0,y:0};
+let startPosition = { x: 0, y: 0 };
 
 const maze = new Maze(10, 10, [], [], startPosition);
 maze.createMaze();
+
+
+/**
+ * UI buttons events
+ */
+
+document.querySelector('.down').addEventListener('click', function () { maze.moveDown() });
+document.querySelector('.up').addEventListener('click', function () { maze.moveUp() });
+document.querySelector('.right').addEventListener('click', function () { maze.moveRight() });
+document.querySelector('.left').addEventListener('click', function () { maze.moveLeft() });

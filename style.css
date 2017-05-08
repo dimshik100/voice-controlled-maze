@@ -69,10 +69,10 @@ ul {
   background-color: #23afee;
   border-radius: 100%;
   content: '';
-  height: 20px;
+  height: 100%;
   position: absolute;
   top: 0;
-  width: 20px;
+  width: 100%;
 }
 .finish {
   background-color: #f31d1d;
