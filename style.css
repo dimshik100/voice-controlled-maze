@@ -17,7 +17,6 @@ h1, p {
   padding: 20px;
 }
 
-
 ul {
   margin: 0;
 }
@@ -48,23 +47,27 @@ ul {
 }
 
 
-
 /* maze stuff */
+
 #maze {
   border-style: solid;
   display: inline-block;
 }
+
 .block {
   float: left;
   height: 20px;
   width: 20px;
 }
+
 .wall {
   background-color: #000;
 }
+
 .me {
   position: relative;
 }
+
 .me:after {
   background-color: #23afee;
   border-radius: 100%;
@@ -74,9 +77,11 @@ ul {
   top: 0;
   width: 100%;
 }
+
 .finish {
   background-color: #f31d1d;
 }
+
 #complete {
   display: none;
   height: 360px;
@@ -89,14 +94,23 @@ ul {
   background-color: red;
 }
 
-
 .mic {
   display: inline-block;
-  width:40px;
+  width: 40px;
   height: 40px;
   background-color: lightgray;
 }
 
 .mic.listening {
   background-color: lightgreen;
+}
+
+.command.done {
+  font-weight: bold;
+  color: green;
+}
+
+.command.fail {
+  font-weight: bold;
+  color: red;
 }

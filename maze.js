@@ -124,7 +124,10 @@ class Maze {
         }
 
     }
-
+    /**
+     * Moves the player to a new position
+     * Returns "True" if player was moved and "False" if failed (because of a wall)
+     */
     movePlayer(maze, oldPosition, newPosition) {
 
         if (maze.valid(newPosition.y, newPosition.x) && maze.maze[newPosition.y][newPosition.x] != 'wall') {
@@ -137,6 +140,9 @@ class Maze {
                 alert('finished')
                 // document.getElementById('complete').setAttribute('style', 'display:block');
             }
+            return true;
+        } else {
+            return false;
         }
 
     }
@@ -163,26 +169,27 @@ class Maze {
     }
     /**
      *  control functions
+     *  Returns "True" if player was moved and "False" if failed (because of a wall)
      */
     moveDown() {
         const newPosition = { x: this.currentPosition.x, y: this.currentPosition.y + 1 };
         // const newPosition = this.createNewPosition('down');
-        this.movePlayer(this, this.currentPosition, newPosition);
+        return this.movePlayer(this, this.currentPosition, newPosition);
     }
     moveUp() {
         const newPosition = { x: this.currentPosition.x, y: this.currentPosition.y - 1 };
         // const newPosition = this.createNewPosition('down');
-        this.movePlayer(this, this.currentPosition, newPosition);
+        return this.movePlayer(this, this.currentPosition, newPosition);
     }
     moveRight() {
         const newPosition = { x: this.currentPosition.x + 1, y: this.currentPosition.y };
         // const newPosition = this.createNewPosition('down');
-        this.movePlayer(this, this.currentPosition, newPosition);
+        return this.movePlayer(this, this.currentPosition, newPosition);
     }
     moveLeft() {
         const newPosition = { x: this.currentPosition.x - 1, y: this.currentPosition.y };
         // const newPosition = this.createNewPosition('down');
-        this.movePlayer(this, this.currentPosition, newPosition);
+        return this.movePlayer(this, this.currentPosition, newPosition);
     }
 }
 

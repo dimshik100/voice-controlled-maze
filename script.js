@@ -25,7 +25,7 @@ var startGameBtn = document.querySelector('.start-game-btn');
 
 var commandsHTML = '';
 commands.forEach(function (v, i, a) {
-  console.log(v, i);
+  // console.log(v, i);
   commandsHTML += '<span> ' + v + ' </span>';
 });
 hints.innerHTML = 'Tap/click then say a command to play or reset the game. Try ' + commandsHTML + '.';
@@ -36,8 +36,7 @@ hints.innerHTML = 'Tap/click then say a command to play or reset the game. Try '
 // }
 
 speakBtn.onclick = function () {
-  recognition.start();
-  console.log('Ready to receive a command.');
+startRecognition();
 }
 
 stopGameBtn.onclick = function () {
@@ -46,14 +45,25 @@ stopGameBtn.onclick = function () {
 }
 
 startGameBtn.onclick = function () {
+  startRecognition();
+}
+
+
+
+function startRecognition(){
   recognition.start();
   console.log('Ready to receive a command.');
+  document.querySelector('.mic').classList.add('listening');
 }
 
 // recognition.start();
 // console.log('Ready to receive a command.');
 
 recognition.onresult = function (event) {
+
+  document.querySelector('.mic').classList.remove('listening');
+
+
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
   // It has a getter so it can be accessed like an array
@@ -67,49 +77,99 @@ recognition.onresult = function (event) {
   var command = event.results[last][0].transcript;
   var confidence = event.results[0][0].confidence;
 
-  diagnostic.textContent = 'Result received: ' + command + '.';
+
   // bg.style.backgroundColor = command;
-  console.log('Confidence: ' + confidence);
+  console.log('command: ' + command + ' ,confidence: ' + confidence);
 
 
-  matchCommand(command, confidence);
+  if (confidence > 0.4) {
+    // because a command can contain multiple words 
+    // we need to split it.
+    let words = command.split(' ');
+    const commandsFromWords = [];
 
-}
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i];
+      if (commands.indexOf(word) >= 0) {
+        // add word to valid commands 
+        commandsFromWords.push(word);
 
-function matchCommand(command, confidence) {
-
-  console.log('command: ' + command + ' confidence: ' + confidence);
-
-  // because a command can contain multiple words 
-  // we need to split it.
-  var words = command.split(' ');
-
-  for (word of words) {
-    if (commands.indexOf(word) >= 0 && confidence > 0.4) {
-      doCommand(word);
-      // return;
+        // wrap the command for highlighting 
+        words[i] = '<span class="command" id="com-' + (commandsFromWords.length - 1) + '">' + word + '</span>';
+        // return;
+      }
     }
+
+    // convert back to string
+    command = words.join(' ');
+
+    diagnostic.innerHTML = 'Result received: ' + command + '.';
+
+    executeVoiceCommands(commandsFromWords);
+
+
+  } else {
+    diagnostic.textContent = 'Not sure that i understand your command.';
   }
+
+
 }
 
-function doCommand(command) {
+
+function executeVoiceCommands(commands) {
+
+
+
+var delay = 300;
+
+var i = 0
+var id = window.setInterval(function(){
+    if(i >= commands.length) {
+        clearInterval(id);
+        return;
+    }
+
+  doCommand(commands[i],i);
+
+    console.log(i);
+    i++;
+}, delay);
+
+
+
+  // for (i in commands) {
+  //   doCommand(commands[i]);
+  // }
+}
+
+
+
+function doCommand(command,index) {
   commandsList.innerHTML += '<li>' + command + '</li>';
 
+  let executed = false;
   // this might not be the correct place to call maze
-              switch (command) {
-                case 'up':
-                    maze.moveUp();
-                    break;
-                case 'down':
-                    maze.moveDown();
-                    break;
-                case 'right':
-                    maze.moveRight();
-                    break;
-                case 'left':
-                    maze.moveLeft();
-                    break;
-            }
+  switch (command) {
+    case 'up':
+      executed = maze.moveUp();
+      break;
+    case 'down':
+      executed = maze.moveDown();
+      break;
+    case 'right':
+      executed = maze.moveRight();
+      break;
+    case 'left':
+      executed = maze.moveLeft();
+      break;
+  }
+
+  // Color the commands in user input
+  if (executed) {
+    document.getElementById('com-' + index).classList.add('done');
+  } else {
+    document.getElementById('com-' + index).classList.add('fail');
+  }
 }
 
 recognition.onspeechend = function () {
