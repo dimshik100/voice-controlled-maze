@@ -50,8 +50,8 @@ startGameBtn.onclick = function () {
   console.log('Ready to receive a command.');
 }
 
-recognition.start();
-console.log('Ready to receive a command.');
+// recognition.start();
+// console.log('Ready to receive a command.');
 
 recognition.onresult = function (event) {
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object

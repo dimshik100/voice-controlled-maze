@@ -27,8 +27,8 @@ ul {
 }
 
 .commands-list {
-  width: 226px;
-  height: 226px;
+  width: 200px;
+  height: 100px;
   border: 1px solid black;
   overflow: scroll;
   display: inline-block;
@@ -87,4 +87,16 @@ ul {
   width: 640px;
   z-index: 1000;
   background-color: red;
+}
+
+
+.mic {
+  display: inline-block;
+  width:40px;
+  height: 40px;
+  background-color: lightgray;
+}
+
+.mic.listening {
+  background-color: lightgreen;
 }
