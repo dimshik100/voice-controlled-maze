@@ -18,7 +18,7 @@ recognition.maxAlternatives = 1;
 var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('html');
 var hints = document.querySelector('.hints');
-var commandsList = document.querySelector('.commands-list');
+// var commandsList = document.querySelector('.commands-list');
 var speakBtn = document.querySelector('.speak-btn');
 var stopGameBtn = document.querySelector('.stop-game-btn');
 var startGameBtn = document.querySelector('.start-game-btn');
@@ -36,12 +36,11 @@ hints.innerHTML = 'Tap/click then say a command to play or reset the game. Try '
 // }
 
 speakBtn.onclick = function () {
-startRecognition();
+  startRecognition();
 }
 
 stopGameBtn.onclick = function () {
-  recognition.stop();
-  console.log('Recognition stopped.');
+  stopRecognition();
 }
 
 startGameBtn.onclick = function () {
@@ -49,8 +48,14 @@ startGameBtn.onclick = function () {
 }
 
 
+function stopRecognition() {
+  recognition.stop();
+  console.log('Recognition stopped.');
+  document.querySelector('.mic').classList.remove('listening');
+}
 
-function startRecognition(){
+
+function startRecognition() {
   recognition.start();
   console.log('Ready to receive a command.');
   document.querySelector('.mic').classList.add('listening');
@@ -61,8 +66,8 @@ function startRecognition(){
 
 recognition.onresult = function (event) {
 
-  document.querySelector('.mic').classList.remove('listening');
 
+  stopRecognition();
 
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
@@ -120,20 +125,22 @@ function executeVoiceCommands(commands) {
 
 
 
-var delay = 300;
+  var delay = 300;
 
-var i = 0
-var id = window.setInterval(function(){
-    if(i >= commands.length) {
-        clearInterval(id);
-        return;
+  var i = 0
+  var id = window.setInterval(function () {
+    if (i >= commands.length) {
+      clearInterval(id);
+      // restart recognition again
+      startRecognition();
+      return;
     }
 
-  doCommand(commands[i],i);
+    doCommand(commands[i], i);
 
-    console.log(i);
+    console.log('Executing command: ' + commands[i] + ' (' + i + ' / ' + commands.length + ')');
     i++;
-}, delay);
+  }, delay);
 
 
 
@@ -144,8 +151,8 @@ var id = window.setInterval(function(){
 
 
 
-function doCommand(command,index) {
-  commandsList.innerHTML += '<li>' + command + '</li>';
+function doCommand(command, index) {
+  // commandsList.innerHTML += '<li>' + command + '</li>';
 
   let executed = false;
   // this might not be the correct place to call maze

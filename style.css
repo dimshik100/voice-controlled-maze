@@ -25,13 +25,13 @@ ul {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
 
-.commands-list {
+/*.commands-list {
   width: 200px;
   height: 100px;
   border: 1px solid black;
   overflow: scroll;
   display: inline-block;
-}
+}*/
 
 
 /* This is for mobile - because there is no continuous recognition support */
