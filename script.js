@@ -2,7 +2,7 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var commands = ['right', 'left', 'up', 'down', 'reset'];
+var commands = ['right', 'left', 'up', 'down', 'restart','new'];
 // var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
 var grammar = '#JSGF V1.0; grammar commands; public <command> = ' + commands.join(' | ') + ' ;'
 
@@ -28,7 +28,7 @@ commands.forEach(function (v, i, a) {
   // console.log(v, i);
   commandsHTML += '<span> ' + v + ' </span>';
 });
-hints.innerHTML = 'Tap/click then say a command to play or reset the game. Try ' + commandsHTML + '.';
+hints.innerHTML = 'say a command to play or restart the game. Try ' + commandsHTML + '.';
 
 // document.body.onclick = function() {
 //   recognition.start();
@@ -169,8 +169,12 @@ function doCommand(command, index) {
     case 'left':
       executed = maze.moveLeft();
       break;
-    case 'reset':
-      maze.reset();
+    case 'new':
+      maze.newGame();
+      break;
+    case 'restart':
+      maze.restart();
+      break;
   }
 
   // Color the commands in user input

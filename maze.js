@@ -78,6 +78,7 @@ class Maze {
         const mazeElement = document.getElementById('maze');
         mazeElement.setAttribute('style', 'height:' + this.height * this.blockHeight + 'px; width:' + this.width * this.blockWidth + 'px');
 
+        // fill the whole maze with walls
         for (var y = 0; y < this.height; y++) {
             this.maze[y] = [];
             for (var x = 0; x < this.width; this.maze[y][x++] = 'wall') {
@@ -132,10 +133,10 @@ class Maze {
 
         if (maze.valid(newPosition.y, newPosition.x) && maze.maze[newPosition.y][newPosition.x] != 'wall') {
 
-            document.getElementById(oldPosition.y + '-' + oldPosition.x).className = 'block';
+            document.getElementById(oldPosition.y + '-' + oldPosition.x).classList.remove('me');
             // update current position
             maze.currentPosition = newPosition;
-            document.getElementById(newPosition.y + '-' + newPosition.x).className = 'block me';
+            document.getElementById(newPosition.y + '-' + newPosition.x).classList.add('me');
             if (maze.isFinished()) {
                 alert('finished')
                 // document.getElementById('complete').setAttribute('style', 'display:block');
@@ -147,11 +148,18 @@ class Maze {
 
     }
 
-    reset(){
+    newGame() {
         document.getElementById('maze').innerHTML = '';
         this.walls = [];
         this.currentPosition = { x: 0, y: 0 };
         this.createMaze();
+    }
+
+    restart() {
+        if (this.isFinished()) {
+            document.getElementById((parseInt(this.height) - 1) + '-' + (parseInt(this.width) - 1)).className = 'block finish';
+        }
+        this.movePlayer(this, this.currentPosition, { x: 0, y: 0 });
     }
 
     amaze(y, x, addBlockWalls) {
@@ -219,6 +227,10 @@ document.querySelector('.up').addEventListener('click', function () { maze.moveU
 document.querySelector('.right').addEventListener('click', function () { maze.moveRight() });
 document.querySelector('.left').addEventListener('click', function () { maze.moveLeft() });
 
-document.querySelector('.reset').addEventListener('click', function () { 
-    maze.reset();
- });
+document.querySelector('.new-game').addEventListener('click', function () {
+    maze.newGame();
+});
+
+document.querySelector('.restart').addEventListener('click', function () {
+    maze.restart();
+});
