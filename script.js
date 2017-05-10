@@ -26,7 +26,8 @@ var startGameBtn = document.querySelector('.start-game-btn');
 var commandsHTML = '';
 commands.forEach(function (v, i, a) {
   // console.log(v, i);
-  commandsHTML += '<span> ' + v + ' </span>';
+  // commandsHTML += '<span> ' + v + ' </span>';
+  commandsHTML += ' ' + v + ' ';
 });
 hints.innerHTML = 'say a command to play or restart the game. Try ' + commandsHTML + '.';
 

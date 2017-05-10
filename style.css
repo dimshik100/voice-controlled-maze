@@ -30,6 +30,7 @@ button {
   margin: 5px;
 }
 
+
 /*.commands-list {
   width: 200px;
   height: 100px;
@@ -38,10 +39,15 @@ button {
   display: inline-block;
 }*/
 
+.controls-wrapper {
+  margin-top: 20px;
+}
 
 .controls-wrapper > div {
   display: flex;
+  justify-content: center;
 }
+
 
 /* This is for mobile - because there is no continuous recognition support */
 
@@ -59,21 +65,18 @@ button {
   }
 }
 
-
 .speech-wrapper {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
-
-
-
 
 .mic {
   display: inline-block;
   width: 40px;
   height: 40px;
   background-color: lightgray;
-  position: absolute;
-  
 }
 
 .mic.listening {
