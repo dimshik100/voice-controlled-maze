@@ -169,6 +169,8 @@ function doCommand(command, index) {
     case 'left':
       executed = maze.moveLeft();
       break;
+    case 'reset':
+      maze.reset();
   }
 
   // Color the commands in user input

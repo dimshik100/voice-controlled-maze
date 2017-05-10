@@ -147,7 +147,12 @@ class Maze {
 
     }
 
-
+    reset(){
+        document.getElementById('maze').innerHTML = '';
+        this.walls = [];
+        this.currentPosition = { x: 0, y: 0 };
+        this.createMaze();
+    }
 
     amaze(y, x, addBlockWalls) {
         let maze = this.maze;
@@ -213,3 +218,7 @@ document.querySelector('.down').addEventListener('click', function () { maze.mov
 document.querySelector('.up').addEventListener('click', function () { maze.moveUp() });
 document.querySelector('.right').addEventListener('click', function () { maze.moveRight() });
 document.querySelector('.left').addEventListener('click', function () { maze.moveLeft() });
+
+document.querySelector('.reset').addEventListener('click', function () { 
+    maze.reset();
+ });

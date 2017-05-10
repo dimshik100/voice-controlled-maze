@@ -17,33 +17,34 @@
 <body>
   <h1>Voice controlled maze</h1>
   <p>Help the blue dot to get to the red square.
-    <br>
-    Use the keyboard arrows or the buttons on the screen to navigate.
+    <br> Use the keyboard arrows or the buttons on the screen to navigate.
   </p>
   <p class="hints"></p>
 
   <!--<ol class="commands-list"></ol>-->
-
-  <div id='maze'></div>
+  <div class="maze-wrapper">
+    <div id='maze'></div>
+  </div>
   <div id='complete'>WOW</div>
 
   <button class="speak-btn">Speak</button>
   <button class="stop-game-btn">Stop voice control</button>
   <button class="start-game-btn">Start voice control</button>
 
-<div class="controls-wrapper">
-  <button class="left">LEFT</button>
-  <button class="right">RIGHT</button>
-  <button class="up">UP</button>
-  <button class="down">DOWN</button>
-  <br>
-  <button class="reset">RESET</button>
-</div>
+  <div class="controls-wrapper">
+    <button class="left">LEFT</button>
+    <button class="right">RIGHT</button>
+    <button class="up">UP</button>
+    <button class="down">DOWN</button>
+    <br>
+    <button class="reset">RESET</button>
+  </div>
 
 
 
   <div>
-    <span class="mic"></span><p class="output"><em>...diagnostic messages</em></p>
+    <span class="mic"></span>
+    <p class="output"><em>...diagnostic messages</em></p>
   </div>
 
   <script src="script.js"></script>

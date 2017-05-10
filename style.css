@@ -36,6 +36,13 @@ ul {
 
 /* This is for mobile - because there is no continuous recognition support */
 
+.maze-wrapper {
+  width:100%;
+  height: 150px;
+      text-align: center;
+    margin: 5em 0;
+}
+
 .speak-btn {
   display: none;
 }
@@ -51,6 +58,7 @@ ul {
 
 #maze {
   border-style: solid;
+  margin: 0 auto;
   display: inline-block;
 }
 

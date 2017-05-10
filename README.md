@@ -26,3 +26,5 @@ Check the [LIVE DEMO](https://dimshik100.github.io/voice-controlled-maze/)
 - ~~Color the words in user command in green when they are executed~~
 - ~~Add delay between commands when executing multiple commands~~
 - Add message if voice control is not supported (show supported browsers)
+- Add "new game" button\command that will start a new game
+- Change "reset" to "restart", which will restart the same maze.
