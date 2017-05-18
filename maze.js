@@ -138,11 +138,18 @@ class Maze {
             maze.currentPosition = newPosition;
             document.getElementById(newPosition.y + '-' + newPosition.x).classList.add('me');
             if (maze.isFinished()) {
-                alert('finished')
+                swal({title: "Congratulations!", text: "You have Finished the game!", type:"success"},
+                function(isConfirm){
+                    if(isConfirm){
+                        maze.newGame();
+                    }
+                })
+
                 // document.getElementById('complete').setAttribute('style', 'display:block');
             }
             return true;
         } else {
+            maze.error();
             return false;
         }
 
@@ -176,6 +183,13 @@ class Maze {
     valid(a, b) {
         return (a < this.height && a >= 0 && b < this.width && b >= 0) ? true : false;
     };
+
+    error(a, b){
+        var sound = new Audio('assets/error.wav');
+        if(!maze.valid()){
+            sound.play();
+        }
+    }
 
     isFinished() {
         return (this.currentPosition.y == this.height - 1 && this.currentPosition.x == this.width - 1);
