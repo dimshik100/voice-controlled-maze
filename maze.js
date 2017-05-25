@@ -222,15 +222,15 @@ maze.createMaze();
  * UI buttons events
  */
 
-document.querySelector('.down').addEventListener('click', function () { maze.moveDown() });
-document.querySelector('.up').addEventListener('click', function () { maze.moveUp() });
-document.querySelector('.right').addEventListener('click', function () { maze.moveRight() });
-document.querySelector('.left').addEventListener('click', function () { maze.moveLeft() });
+document.querySelector('.btn-down').addEventListener('click', function () { maze.moveDown() });
+document.querySelector('.btn-up').addEventListener('click', function () { maze.moveUp() });
+document.querySelector('.btn-right').addEventListener('click', function () { maze.moveRight() });
+document.querySelector('.btn-left').addEventListener('click', function () { maze.moveLeft() });
 
-document.querySelector('.new-game').addEventListener('click', function () {
+document.querySelector('.btn-new-game').addEventListener('click', function () {
     maze.newGame();
 });
 
-document.querySelector('.restart').addEventListener('click', function () {
+document.querySelector('.btn-restart').addEventListener('click', function () {
     maze.restart();
 });
