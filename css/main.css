@@ -35,6 +35,8 @@ ol {
     background-image: url("../img/assets/ico_btn_NewGame.svg"); }
   .btn.btn-info {
     background-image: url("../img/assets/ico_btn_info.svg"); }
+  .btn.btn-speak {
+    background-image: url("../img/assets/ico_btn_Mic.svg"); }
   .btn.btn-small {
     width: 48px;
     height: 48px;
@@ -43,6 +45,37 @@ ol {
     width: 64px;
     height: 64px;
     margin: 10px; }
+
+.speech-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  bottom: 40px;
+  left: 40px; }
+
+.mic {
+  background-color: #aaaaaa; }
+  .mic:hover {
+    background-color: #38a838; }
+  .mic.listening {
+    background-color: #339933; }
+
+.command {
+  font-weight: bold; }
+  .command.done {
+    color: #339933; }
+  .command.fail {
+    color: #FF1D25; }
+
+.sweet-alert {
+  font-family: 'Noto Sans', sans-serif !important; }
+  .sweet-alert .confirm,
+  .sweet-alert .cancel {
+    background-color: #FFC400 !important;
+    border: 2px solid #000;
+    border-radius: 5px;
+    color: #000 !important; }
 
 html {
   height: 100%; }
@@ -96,35 +129,13 @@ body {
 .maze-wrapper {
   display: flex; }
 
-.speak-btn {
-  display: none; }
-
-@media only screen and (max-width: 500px) {
-  .speak-btn {
-    display: block; } }
-
-.speech-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px; }
-
-.mic {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: lightgray; }
-
-.mic.listening {
-  background-color: lightgreen; }
-
-.command.done {
-  font-weight: bold;
-  color: green; }
-
-.command.fail {
-  font-weight: bold;
-  color: red; }
+.arrow-buttons-wrapper {
+  position: absolute;
+  bottom: 40px;
+  right: 40px; }
+  .arrow-buttons-wrapper .btn-row {
+    display: flex;
+    justify-content: center; }
 
 /* maze stuff */
 #maze {
@@ -166,12 +177,3 @@ body {
   width: 640px;
   z-index: 1000;
   background-color: red; }
-
-.arrow-buttons {
-  position: absolute;
-  bottom: 40px;
-  right: 40px; }
-
-.btn-row {
-  display: flex;
-  justify-content: center; }

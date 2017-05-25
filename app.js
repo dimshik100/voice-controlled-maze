@@ -19,9 +19,9 @@ var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('html');
 var hints = document.querySelector('.hints');
 // var commandsList = document.querySelector('.commands-list');
-var speakBtn = document.querySelector('.speak-btn');
+var speakBtn = document.querySelector('.btn-speak');
 var stopGameBtn = document.querySelector('.stop-game-btn');
-var startGameBtn = document.querySelector('.start-game-btn');
+
 
 var commandsHTML = '';
 commands.forEach(function (v, i, a) {
@@ -44,9 +44,6 @@ stopGameBtn.onclick = function () {
   stopRecognition();
 }
 
-startGameBtn.onclick = function () {
-  startRecognition();
-}
 
 
 function stopRecognition() {

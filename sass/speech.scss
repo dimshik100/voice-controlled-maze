@@ -1,0 +1,28 @@
+.speech-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+}
+
+.mic {
+    background-color: darken($grey , 30%);
+    &:hover {
+      background-color: lighten($green , 4%);      
+    }
+    &.listening {
+        background-color: $green;
+    }
+}
+
+.command {
+  font-weight: bold;
+    &.done {  
+        color: $green;
+    }
+    &.fail {
+        color: $red;
+    }
+}

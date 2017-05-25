@@ -1,54 +1,50 @@
 .btn {
-  background-color: $yellow;
-  border: 2px solid $black;
-  border-radius: 5px;
-  padding: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  outline: none;
-  cursor: pointer;
-  &:hover {
-    background-color: lighten($yellow, 4%);
-  }
-  &:active {
-    background-color: darken($yellow, 3%);
-  }
-
-  &.btn-left{
-      background-image: url('../img/assets/ico_btn_Arr_Left.svg');
-  }
-  &.btn-right{
-      background-image: url('../img/assets/ico_btn_Arr_Right.svg');
-  }
-  &.btn-up{
-      background-image: url('../img/assets/ico_btn_Arr_Up.svg');
-  }
-  &.btn-down{
-      background-image: url('../img/assets/ico_btn_Arr_Down.svg');
-  }
-  
-  &.btn-restart{
-      background-image: url('../img/assets/ico_btn_RestartGame.svg');
-  }
-  &.btn-new-game{
-      background-image: url('../img/assets/ico_btn_NewGame.svg');
-  }
-
-  &.btn-info {
-      background-image: url('../img/assets/ico_btn_info.svg');
-  }
-
-  &.btn-small {
-    width: 48px;
-    height:48px;
+    background-color: $yellow;
+    border: 2px solid $black;
+    border-radius: 5px;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        background-color: lighten($yellow, 4%);
+    }
+    &:active {
+        background-color: darken($yellow, 3%);
+    }
+    &.btn-left {
+        background-image: url('../img/assets/ico_btn_Arr_Left.svg');
+    }
+    &.btn-right {
+        background-image: url('../img/assets/ico_btn_Arr_Right.svg');
+    }
+    &.btn-up {
+        background-image: url('../img/assets/ico_btn_Arr_Up.svg');
+    }
+    &.btn-down {
+        background-image: url('../img/assets/ico_btn_Arr_Down.svg');
+    }
+    &.btn-restart {
+        background-image: url('../img/assets/ico_btn_RestartGame.svg');
+    }
+    &.btn-new-game {
+        background-image: url('../img/assets/ico_btn_NewGame.svg');
+    }
+    &.btn-info {
+        background-image: url('../img/assets/ico_btn_info.svg');
+    }
+    &.btn-speak {
+        background-image: url('../img/assets/ico_btn_Mic.svg');
+    }
+    &.btn-small {
+        width: 48px;
+        height: 48px;
         margin: 5px;
-  }
-
-  &.btn-large {
-    width: 64px;
-    height:64px;
+    }
+    &.btn-large {
+        width: 64px;
+        height: 64px;
         margin: 10px;
-  }
-
+    }
 }
-

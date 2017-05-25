@@ -2,66 +2,56 @@
 @import 'colors';
 @import 'header';
 @import 'buttons';
-
+@import 'speech';
+@import 'sweetalert-overides';
 html {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  height: inherit;
-  overflow: hidden;
-  background-color: $grey;
-  font-family: 'Noto Sans', sans-serif;
+    height: inherit;
+    overflow: hidden;
+    background-color: $grey;
+    font-family: 'Noto Sans', sans-serif;
 }
 
-
 .header {
-  background-color: $yellow;
-  width:100%;
-  height: 100px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 25px 40px;
-  z-index: 10;
-  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
-
-  display: flex;
-  justify-content: space-between;
-
-  .logo {
-    height: 100%;
-    width:90px;
-    background-image: url('../img/assets/Logo_VoiceMaze.svg');
-    background-repeat: no-repeat;
-  }
-
-  h1 {
-    margin: 0;
-  }
-
-  .btn-info {
-
-  }
+    background-color: $yellow;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 40px;
+    z-index: 10;
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    display: flex;
+    justify-content: space-between;
+    .logo {
+        height: 100%;
+        width: 90px;
+        background-image: url('../img/assets/Logo_VoiceMaze.svg');
+        background-repeat: no-repeat;
+    }
+    h1 {
+        margin: 0;
+    }
+    .btn-info {}
 }
 
 .game-section {
-  position: absolute;
-  top:100px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width:100%;
+    position: absolute;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
-
-
 
 .hints span {
-  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
-
-
 
 
 /*.commands-list {
@@ -73,112 +63,68 @@ body {
 }*/
 
 
-
-
 /* This is for mobile - because there is no continuous recognition support */
 
 .maze-wrapper {
-  display: flex;
+    display: flex;
 }
 
-.speak-btn {
-  display: none;
-}
-
-@media only screen and (max-width: 500px) {
-  .speak-btn {
-    display: block;
-  }
-}
-
-.speech-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.mic {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: lightgray;
-}
-
-.mic.listening {
-  background-color: lightgreen;
-}
-
-.command.done {
-  font-weight: bold;
-  color: green;
-}
-
-.command.fail {
-  font-weight: bold;
-  color: red;
+.arrow-buttons-wrapper {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    .btn-row {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 
 /* maze stuff */
 
 #maze {
-  border-style: solid;
-  margin: 0 auto;
-  display: inline-block;
-
+    border-style: solid;
+    margin: 0 auto;
+    display: inline-block;
     box-sizing: content-box;
 }
 
 .block {
-  float: left;
-  height: 20px;
-  width: 20px;
+    float: left;
+    height: 20px;
+    width: 20px;
 }
 
 .wall {
-  background-color: #000;
+    background-color: #000;
 }
 
 .me {
-  position: relative;
+    position: relative;
 }
 
 .me:after {
-  background-color: #23afee;
-  border-radius: 100%;
-  content: '';
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
+    background-color: #23afee;
+    border-radius: 100%;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .finish {
-  background-color: #f31d1d;
+    background-color: #f31d1d;
 }
 
 #complete {
-  display: none;
-  height: 360px;
-  left: 20%;
-  position: absolute;
-  right: 20%;
-  top: 50px;
-  width: 640px;
-  z-index: 1000;
-  background-color: red;
-}
-
-
-.arrow-buttons {
-  position: absolute;
-  bottom: 40px;
-  right: 40px;
-}
-
-.btn-row {
-  
-      display: flex;
-    justify-content: center;
+    display: none;
+    height: 360px;
+    left: 20%;
+    position: absolute;
+    right: 20%;
+    top: 50px;
+    width: 640px;
+    z-index: 1000;
+    background-color: red;
 }
