@@ -5,36 +5,85 @@ ol {
   margin: 0;
   padding: 0; }
 
+*, *:before, *:after {
+  box-sizing: border-box; }
+
 .btn {
   background-color: #FFC400;
   border: 2px solid #000;
   border-radius: 5px;
+  padding: 0;
   background-repeat: no-repeat;
-  background-position: center; }
+  background-position: center;
+  outline: none;
+  cursor: pointer; }
+  .btn:hover {
+    background-color: #ffc914; }
+  .btn:active {
+    background-color: #f0b800; }
   .btn.btn-left {
     background-image: url("../img/assets/ico_btn_Arr_Left.svg"); }
+  .btn.btn-right {
+    background-image: url("../img/assets/ico_btn_Arr_Right.svg"); }
+  .btn.btn-up {
+    background-image: url("../img/assets/ico_btn_Arr_Up.svg"); }
+  .btn.btn-down {
+    background-image: url("../img/assets/ico_btn_Arr_Down.svg"); }
+  .btn.btn-restart {
+    background-image: url("../img/assets/ico_btn_RestartGame.svg"); }
+  .btn.btn-new-game {
+    background-image: url("../img/assets/ico_btn_NewGame.svg"); }
+  .btn.btn-info {
+    background-image: url("../img/assets/ico_btn_info.svg"); }
+  .btn.btn-small {
+    width: 48px;
+    height: 48px;
+    margin: 5px; }
+  .btn.btn-large {
+    width: 64px;
+    height: 64px;
+    margin: 10px; }
 
 html {
   height: 100%; }
 
 body {
   height: inherit;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: #F6F6F6;
+  font-family: 'Noto Sans', sans-serif; }
 
-h1, p {
-  font-family: sans-serif;
-  text-align: center;
-  padding: 10px; }
+.header {
+  background-color: #FFC400;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 40px;
+  z-index: 10;
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+  display: flex;
+  justify-content: space-between; }
+  .header .logo {
+    height: 100%;
+    width: 90px;
+    background-image: url("../img/assets/Logo_VoiceMaze.svg");
+    background-repeat: no-repeat; }
+  .header h1 {
+    margin: 0; }
 
-ul {
-  margin: 0; }
+.game-section {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
 
 .hints span {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7); }
-
-button {
-  padding: 10px;
-  margin: 5px; }
 
 /*.commands-list {
   width: 200px;
@@ -43,13 +92,6 @@ button {
   overflow: scroll;
   display: inline-block;
 }*/
-.controls-wrapper {
-  margin-top: 20px; }
-
-.controls-wrapper > div {
-  display: flex;
-  justify-content: center; }
-
 /* This is for mobile - because there is no continuous recognition support */
 .maze-wrapper {
   display: flex; }
@@ -88,7 +130,8 @@ button {
 #maze {
   border-style: solid;
   margin: 0 auto;
-  display: inline-block; }
+  display: inline-block;
+  box-sizing: content-box; }
 
 .block {
   float: left;
@@ -123,3 +166,12 @@ button {
   width: 640px;
   z-index: 1000;
   background-color: red; }
+
+.arrow-buttons {
+  position: absolute;
+  bottom: 40px;
+  right: 40px; }
+
+.btn-row {
+  display: flex;
+  justify-content: center; }
