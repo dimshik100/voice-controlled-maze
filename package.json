@@ -1,0 +1,28 @@
+{
+  "name": "voice-controlled-maze",
+  "version": "1.0.0",
+  "description": "Web based voice controlled maze game.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimshik100/voice-controlled-maze.git"
+  },
+  "keywords": [
+    "voice",
+    "maze",
+    "game"
+  ],
+  "author": "Dima Vishnevetsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dimshik100/voice-controlled-maze/issues"
+  },
+  "homepage": "https://github.com/dimshik100/voice-controlled-maze#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

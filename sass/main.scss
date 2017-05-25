@@ -1,0 +1,141 @@
+@import 'reset';
+
+html {
+  height: 100%;
+}
+
+body {
+  height: inherit;
+  overflow: hidden;
+}
+
+h1, p {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+ul {
+  margin: 0;
+}
+
+.hints span {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+}
+
+
+/*.commands-list {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  overflow: scroll;
+  display: inline-block;
+}*/
+
+.controls-wrapper {
+  margin-top: 20px;
+}
+
+.controls-wrapper > div {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* This is for mobile - because there is no continuous recognition support */
+
+.maze-wrapper {
+  display: flex;
+}
+
+.speak-btn {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .speak-btn {
+    display: block;
+  }
+}
+
+.speech-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mic {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: lightgray;
+}
+
+.mic.listening {
+  background-color: lightgreen;
+}
+
+.command.done {
+  font-weight: bold;
+  color: green;
+}
+
+.command.fail {
+  font-weight: bold;
+  color: red;
+}
+
+
+/* maze stuff */
+
+#maze {
+  border-style: solid;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.block {
+  float: left;
+  height: 20px;
+  width: 20px;
+}
+
+.wall {
+  background-color: #000;
+}
+
+.me {
+  position: relative;
+}
+
+.me:after {
+  background-color: #23afee;
+  border-radius: 100%;
+  content: '';
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.finish {
+  background-color: #f31d1d;
+}
+
+#complete {
+  display: none;
+  height: 360px;
+  left: 20%;
+  position: absolute;
+  right: 20%;
+  top: 50px;
+  width: 640px;
+  z-index: 1000;
+  background-color: red;
+}
