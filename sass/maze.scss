@@ -1,0 +1,35 @@
+
+#maze {
+    border-style: solid;
+    margin: 0 auto;
+    display: inline-block;
+    box-sizing: content-box;
+}
+
+.block {
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.wall {
+    background-color: #000;
+}
+
+.me {
+    position: relative;
+}
+
+.me:after {
+    background-color: $red;
+    border-radius: 100%;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.finish {
+    background-color: $yellow;
+}

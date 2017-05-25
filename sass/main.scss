@@ -3,6 +3,7 @@
 @import 'header';
 @import 'buttons';
 @import 'speech';
+@import 'maze';
 @import 'sweetalert-overides';
 html {
     height: 100%;
@@ -10,7 +11,7 @@ html {
 
 body {
     height: inherit;
-    overflow: hidden;
+    // overflow: hidden;
     background-color: $grey;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -36,8 +37,13 @@ body {
     }
     h1 {
         margin: 0;
+        font-weight: normal;
+        font-size: 1.7em;
+        line-height: 1.7em;
     }
-    .btn-info {}
+    .btn-info {
+        margin: 0;
+    }
 }
 
 .game-section {
@@ -47,6 +53,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
+    padding: 25px 40px;
 }
 
 .hints span {
@@ -62,9 +69,6 @@ body {
   display: inline-block;
 }*/
 
-
-/* This is for mobile - because there is no continuous recognition support */
-
 .maze-wrapper {
     display: flex;
 }
@@ -77,54 +81,4 @@ body {
         display: flex;
         justify-content: center;
     }
-}
-
-
-/* maze stuff */
-
-#maze {
-    border-style: solid;
-    margin: 0 auto;
-    display: inline-block;
-    box-sizing: content-box;
-}
-
-.block {
-    float: left;
-    height: 20px;
-    width: 20px;
-}
-
-.wall {
-    background-color: #000;
-}
-
-.me {
-    position: relative;
-}
-
-.me:after {
-    background-color: #23afee;
-    border-radius: 100%;
-    content: '';
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
-.finish {
-    background-color: #f31d1d;
-}
-
-#complete {
-    display: none;
-    height: 360px;
-    left: 20%;
-    position: absolute;
-    right: 20%;
-    top: 50px;
-    width: 640px;
-    z-index: 1000;
-    background-color: red;
 }
