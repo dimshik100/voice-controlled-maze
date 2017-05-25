@@ -2,7 +2,8 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
 
-var commands = ['right', 'left', 'up', 'down', 'restart','new'];
+// var commands = ['right', 'left', 'up', 'down', 'restart','new game'];
+var commands = ['right', 'left', 'up', 'down'];
 // var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
 var grammar = '#JSGF V1.0; grammar commands; public <command> = ' + commands.join(' | ') + ' ;'
 
@@ -21,7 +22,7 @@ var hints = document.querySelector('.hints');
 // var commandsList = document.querySelector('.commands-list');
 var speakBtn = document.querySelector('.btn-speak');
 var stopGameBtn = document.querySelector('.stop-game-btn');
-
+var mic = document.querySelector('.mic');
 
 var commandsHTML = '';
 commands.forEach(function (v, i, a) {
@@ -49,14 +50,14 @@ stopGameBtn.onclick = function () {
 function stopRecognition() {
   recognition.stop();
   console.log('Recognition stopped.');
-  document.querySelector('.mic').classList.remove('listening');
+  mic.classList.remove('listening');
 }
 
 
 function startRecognition() {
   recognition.start();
   console.log('Ready to receive a command.');
-  document.querySelector('.mic').classList.add('listening');
+  mic.classList.add('listening');
 }
 
 // recognition.start();
@@ -86,6 +87,20 @@ recognition.onresult = function (event) {
 
 
   if (confidence > 0.4) {
+    // first we check if the user asked to restart or play a new game
+
+
+    if (command.indexOf('restart') >= 0) {
+      swal.close();
+      maze.restart();
+    }
+    if (command.indexOf('new game') >= 0) {
+      swal.close();
+      maze.newGame();
+    }
+// TODO: need to color the commands
+
+
     // because a command can contain multiple words 
     // we need to split it.
     let words = command.split(' ');
@@ -167,12 +182,12 @@ function doCommand(command, index) {
     case 'left':
       executed = maze.moveLeft();
       break;
-    case 'new':
-      maze.newGame();
-      break;
-    case 'restart':
-      maze.restart();
-      break;
+    // case 'new':
+    //   maze.newGame();
+    //   break;
+    // case 'restart':
+    //   maze.restart();
+    //   break;
   }
 
   // Color the commands in user input
@@ -187,13 +202,15 @@ recognition.onspeechend = function () {
   // recognition.stop();
 }
 
-recognition.onnomatch = function (event) {
-  diagnostic.textContent = "I didn't recognise that color.";
-  stopRecognition();
-}
+// recognition.onnomatch = function (event) {
+//   diagnostic.textContent = "I didn't recognise that color.";
+//   stopRecognition();
+// }
 
 recognition.onerror = function (event) {
   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+
+  mic.classList.remove('listening');
 }
 
 // recognition.onend = function(){
