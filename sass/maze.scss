@@ -1,15 +1,28 @@
-
 #maze {
     border-style: solid;
     margin: 0 auto;
     display: inline-block;
     box-sizing: content-box;
+    display: flex;
+    flex-wrap: wrap;
+
+    width:300px;
+    height: 300px;
 }
 
-.block {
-    float: left;
-    height: 20px;
-    width: 20px;
+/* 5x5 */
+.small-maze .block {
+    width: 20%;
+}
+
+/* 8x8 */
+.medium-maze .block {
+    width: 11.1111%;
+}
+
+/* 10x10 */
+.large-maze .block {
+    width: 9.0909%;
 }
 
 .wall {

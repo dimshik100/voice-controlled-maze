@@ -7,15 +7,17 @@ class Maze {
     this.currentPosition = currentPosition;
 
     // this is also set in the CSS under .block
-    this.blockHeight = 20;
-    this.blockWidth = 20;
+    // this.blockHeight = 40;
+    // this.blockWidth = 40;
   }
 
   createMaze() {
     let self = this;
 
     const mazeElement = document.getElementById('maze');
-    mazeElement.setAttribute('style', 'height:' + this.height * this.blockHeight + 'px; width:' + this.width * this.blockWidth + 'px');
+
+    mazeElement.innerHTML = '';
+    // mazeElement.setAttribute('style', 'height:' + this.height * this.blockHeight + 'px; width:' + this.width * this.blockWidth + 'px');
 
     // fill the whole maze with walls
     for (var y = 0; y < this.height; y++) {
@@ -164,15 +166,53 @@ class Maze {
 }
 
 
+let maze;
+
+function createMaze(size) {
+  let mazeWidth = 5;
+  let mazeHeight = 5;
+
+      const mazeElement = document.getElementById('maze');
+
+
+  switch (size) {
+    case 'small':
+      mazeWidth = 5;
+      mazeHeight = 5;
+      mazeElement.className = 'small-maze';
+      break;
+    case 'medium':
+      mazeWidth = 9;
+      mazeHeight = 9;
+      mazeElement.className = 'medium-maze';
+      break;
+    case 'large':
+      mazeWidth = 11;
+      mazeHeight = 11;
+      mazeElement.className = 'large-maze';
+      break;
+
+    default:
+      mazeWidth = 5;
+      mazeHeight = 5;
+      mazeElement.className = 'small-maze';
+      break;
+  }
+
+
+  let startPosition = { x: 0, y: 0 };
+
+  let maze = new Maze(mazeHeight, mazeWidth, [], [], startPosition);
+  maze.createMaze();
+
+  return maze;
+}
+
 /**
  * Creating the maze
  */
+maze = createMaze('large');
 
-let startPosition = { x: 0, y: 0 };
-const mazeWidth = 5;
-const mazeHeight = 5;
-const maze = new Maze(mazeHeight, mazeWidth, [], [], startPosition);
-maze.createMaze();
 
 
 /**
@@ -191,3 +231,10 @@ document.querySelector('.btn-new-game').addEventListener('click', function () {
 document.querySelector('.btn-restart').addEventListener('click', function () {
   maze.restart();
 });
+
+
+document.querySelector('.btn-small-maze').addEventListener('click', function () { maze =createMaze('small') });
+document.querySelector('.btn-medium-maze').addEventListener('click', function () { maze=createMaze('medium') });
+document.querySelector('.btn-large-maze').addEventListener('click', function () { maze=createMaze('large') });
+
+

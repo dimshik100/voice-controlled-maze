@@ -37,6 +37,18 @@
     &.btn-speak {
         background-image: url('../img/assets/ico_btn_Mic.svg');
     }
+    &.btn-small-maze {
+        background-image: url('../img/assets/ico_btn_Def_Easy.svg');
+    }
+    &.btn-medium-maze {
+        background-image: url('../img/assets/ico_btn_Def_Midium.svg');
+    }
+    &.btn-large-maze {
+        background-image: url('../img/assets/ico_btn_Def_Hard.svg');
+    }
+    &.btn-maze-size-select {
+        background-image: url('../img/assets/ico_btn_Def_Hard.svg');
+    }
     &.btn-small {
         width: 48px;
         height: 48px;

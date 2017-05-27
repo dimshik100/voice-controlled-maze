@@ -24,6 +24,7 @@ var speakBtn = document.querySelector('.btn-speak');
 var stopGameBtn = document.querySelector('.stop-game-btn');
 var mic = document.querySelector('.mic');
 
+
 var commandsHTML = '';
 commands.forEach(function (v, i, a) {
   // console.log(v, i);
@@ -44,6 +45,21 @@ speakBtn.onclick = function () {
 stopGameBtn.onclick = function () {
   stopRecognition();
 }
+
+
+$(document).ready(function () {
+
+  var mazeSizeButtons = $('.maze-size-buttons');
+
+  $('.btn-maze-size-select').on('click', function () {
+    mazeSizeButtons.toggle();
+  });
+});
+
+
+
+
+
 
 
 
@@ -98,7 +114,7 @@ recognition.onresult = function (event) {
       swal.close();
       maze.newGame();
     }
-// TODO: need to color the commands
+    // TODO: need to color the commands
 
 
     // because a command can contain multiple words 

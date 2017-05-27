@@ -37,6 +37,14 @@ ol {
     background-image: url("../img/assets/ico_btn_info.svg"); }
   .btn.btn-speak {
     background-image: url("../img/assets/ico_btn_Mic.svg"); }
+  .btn.btn-small-maze {
+    background-image: url("../img/assets/ico_btn_Def_Easy.svg"); }
+  .btn.btn-medium-maze {
+    background-image: url("../img/assets/ico_btn_Def_Midium.svg"); }
+  .btn.btn-large-maze {
+    background-image: url("../img/assets/ico_btn_Def_Hard.svg"); }
+  .btn.btn-maze-size-select {
+    background-image: url("../img/assets/ico_btn_Def_Hard.svg"); }
   .btn.btn-small {
     width: 48px;
     height: 48px;
@@ -72,12 +80,23 @@ ol {
   border-style: solid;
   margin: 0 auto;
   display: inline-block;
-  box-sizing: content-box; }
+  box-sizing: content-box;
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px; }
 
-.block {
-  float: left;
-  height: 20px;
-  width: 20px; }
+/* 5x5 */
+.small-maze .block {
+  width: 20%; }
+
+/* 8x8 */
+.medium-maze .block {
+  width: 11.1111%; }
+
+/* 10x10 */
+.large-maze .block {
+  width: 9.0909%; }
 
 .wall {
   background-color: #000; }
@@ -169,3 +188,11 @@ body {
   .arrow-buttons-wrapper .btn-row {
     display: flex;
     justify-content: center; }
+
+.maze-size-select-wrapper {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  display: flex; }
+  .maze-size-select-wrapper .maze-size-buttons {
+    display: none; }
