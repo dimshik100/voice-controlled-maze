@@ -20,7 +20,10 @@
 <body>
 
   <div class="intro-screen">
-
+      <p>Help the blue dot to get to the red square.
+        <br> Use the keyboard arrows or the buttons on the screen to navigate.
+        <br> <span class="hints"></span>
+      </p>
   </div>
 
   <div class="game-screen">
@@ -34,10 +37,7 @@
     <div class="game-section">
 
 
-      <p>Help the blue dot to get to the red square.
-        <br> Use the keyboard arrows or the buttons on the screen to navigate.
-        <br> <span class="hints"></span>
-      </p>
+
 
       <!--<ol class="commands-list"></ol>-->
       <div class="maze-wrapper">
@@ -45,19 +45,20 @@
       </div>
     
         <div>
-          <button class="stop-game-btn">Stop voice control</button>
+          <!--<button class="stop-game-btn">Stop voice control</button>-->
 
           <button class="btn btn-restart btn-small" title="Restart Maze"></button>
-          <button class="btn btn-new-game btn-small" title="New Game"></button>
+          
         </div>
 
 
 <div class="maze-size-select-wrapper">
-  <button class="btn btn-maze-size-select btn-small" title="Select Maze Size"></button>
+  <button class="btn btn-new-game btn-small" title="New Game"></button>
+  <button class="btn btn-maze-size-select btn-small btn-maze-size" title="Select Maze Size"></button>
   <div class="maze-size-buttons">
-  <button class="btn btn-small-maze btn-small" title="Start Small Maze"></button>
-  <button class="btn btn-medium-maze btn-small" title="Start Medium Maze"></button>
-  <button class="btn btn-large-maze btn-small" title="Start Large Maze"></button>
+  <button class="btn btn-small-maze btn-small btn-maze-size" title="Play Easy Maze">Easy</button>
+  <button class="btn btn-medium-maze btn-small btn-maze-size" title="Play Medium Maze">Medium</button>
+  <button class="btn btn-large-maze btn-small btn-maze-size" title="Play Hard Maze">Hard</button>
   </div>
 </div>
 

@@ -88,7 +88,20 @@ body {
     top: 25px;
     left: 40px;
     display: flex;
+    flex-direction: column;
+
     .maze-size-buttons {
         display: none;
+        
+        &.show {
+            display: flex;
+            flex-direction: column;
+        }
     }
+}
+
+.btn-restart {
+    position: absolute;
+    top:25px;
+    right: 40px;
 }

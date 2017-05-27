@@ -53,6 +53,9 @@ ol {
     width: 64px;
     height: 64px;
     margin: 10px; }
+  .btn.btn-maze-size {
+    text-indent: 55px;
+    font-size: 1em; }
 
 .speech-wrapper {
   display: flex;
@@ -193,6 +196,15 @@ body {
   position: absolute;
   top: 25px;
   left: 40px;
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
   .maze-size-select-wrapper .maze-size-buttons {
     display: none; }
+    .maze-size-select-wrapper .maze-size-buttons.show {
+      display: flex;
+      flex-direction: column; }
+
+.btn-restart {
+  position: absolute;
+  top: 25px;
+  right: 40px; }

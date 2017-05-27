@@ -42,9 +42,9 @@ speakBtn.onclick = function () {
   startRecognition();
 }
 
-stopGameBtn.onclick = function () {
-  stopRecognition();
-}
+// stopGameBtn.onclick = function () {
+//   stopRecognition();
+// }
 
 
 $(document).ready(function () {
@@ -52,7 +52,7 @@ $(document).ready(function () {
   var mazeSizeButtons = $('.maze-size-buttons');
 
   $('.btn-maze-size-select').on('click', function () {
-    mazeSizeButtons.toggle();
+    mazeSizeButtons.toggleClass('show');
   });
 });
 
