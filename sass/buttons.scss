@@ -7,6 +7,7 @@
     background-position: center;
     outline: none;
     cursor: pointer;
+    background-size: 36px;
     &:hover {
         background-color: lighten($yellow, 4%);
     }
@@ -37,16 +38,13 @@
     &.btn-speak {
         background-image: url('../img/assets/ico_btn_Mic.svg');
     }
-    &.btn-small-maze {
+    &.icon-small-maze {
         background-image: url('../img/assets/ico_btn_Def_Easy.svg');
     }
-    &.btn-medium-maze {
+    &.icon-medium-maze {
         background-image: url('../img/assets/ico_btn_Def_Midium.svg');
     }
-    &.btn-large-maze {
-        background-image: url('../img/assets/ico_btn_Def_Hard.svg');
-    }
-    &.btn-maze-size-select {
+    &.icon-large-maze {
         background-image: url('../img/assets/ico_btn_Def_Hard.svg');
     }
     &.btn-small {
@@ -60,7 +58,8 @@
         margin: 10px;
     }
     &.btn-maze-size {
-            text-indent: 55px;
-    font-size: 1em;
+        text-indent: 55px;
+        font-size: 1em;
+        font-weight: 600;
     }
 }

@@ -208,10 +208,7 @@ function createMaze(size) {
   return maze;
 }
 
-/**
- * Creating the maze
- */
-maze = createMaze('large');
+
 
 
 
@@ -232,9 +229,5 @@ document.querySelector('.btn-restart').addEventListener('click', function () {
   maze.restart();
 });
 
-
-document.querySelector('.btn-small-maze').addEventListener('click', function () { maze =createMaze('small') });
-document.querySelector('.btn-medium-maze').addEventListener('click', function () { maze=createMaze('medium') });
-document.querySelector('.btn-large-maze').addEventListener('click', function () { maze=createMaze('large') });
 
 

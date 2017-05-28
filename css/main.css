@@ -16,7 +16,8 @@ ol {
   background-repeat: no-repeat;
   background-position: center;
   outline: none;
-  cursor: pointer; }
+  cursor: pointer;
+  background-size: 36px; }
   .btn:hover {
     background-color: #ffc914; }
   .btn:active {
@@ -37,13 +38,11 @@ ol {
     background-image: url("../img/assets/ico_btn_info.svg"); }
   .btn.btn-speak {
     background-image: url("../img/assets/ico_btn_Mic.svg"); }
-  .btn.btn-small-maze {
+  .btn.icon-small-maze {
     background-image: url("../img/assets/ico_btn_Def_Easy.svg"); }
-  .btn.btn-medium-maze {
+  .btn.icon-medium-maze {
     background-image: url("../img/assets/ico_btn_Def_Midium.svg"); }
-  .btn.btn-large-maze {
-    background-image: url("../img/assets/ico_btn_Def_Hard.svg"); }
-  .btn.btn-maze-size-select {
+  .btn.icon-large-maze {
     background-image: url("../img/assets/ico_btn_Def_Hard.svg"); }
   .btn.btn-small {
     width: 48px;
@@ -55,7 +54,8 @@ ol {
     margin: 10px; }
   .btn.btn-maze-size {
     text-indent: 55px;
-    font-size: 1em; }
+    font-size: 1em;
+    font-weight: 600; }
 
 .speech-wrapper {
   display: flex;
@@ -66,6 +66,7 @@ ol {
   left: 40px; }
 
 .mic {
+  background-size: 29px;
   background-color: #aaaaaa; }
   .mic:hover {
     background-color: #38a838; }
@@ -156,7 +157,7 @@ body {
     background-repeat: no-repeat; }
   .header h1 {
     margin: 0;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 1.7em;
     line-height: 1.7em; }
   .header .btn-info {

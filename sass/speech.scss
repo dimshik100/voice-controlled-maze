@@ -8,6 +8,7 @@
 }
 
 .mic {
+    background-size: 29px;
     background-color: darken($grey , 30%);
     &:hover {
       background-color: lighten($green , 4%);      

@@ -50,13 +50,42 @@ speakBtn.onclick = function () {
 $(document).ready(function () {
 
   var mazeSizeButtons = $('.maze-size-buttons');
+  var btnMazeSelect = $('.btn-maze-size-select');
 
-  $('.btn-maze-size-select').on('click', function () {
+
+  btnMazeSelect.on('click', function () {
     mazeSizeButtons.toggleClass('show');
   });
+
+
+  $('.btn-maze-size').on('click', function () {
+    var size = $(this).data('size');
+    updateBtnMazeSizeSelect(size);
+    maze = createMaze(size);
+  });
+
+
+$('.btn-info').on('click',function(){
+  swal({
+     title: 'Info',
+  text: '<div style="text-align:left">Developer: Dima Vishnevetsky (dimshik) <br> Designer: Jamil Jadon</div>',
+  html: true
+  });
+})
+
+  /**
+   * Creating the maze
+   */
+  updateBtnMazeSizeSelect('medium');
+  maze = createMaze('medium');
+
 });
 
 
+
+function updateBtnMazeSizeSelect(size) {
+  $('.btn-maze-size-select').removeClass('icon-small-maze icon-medium-maze icon-large-maze').addClass('icon-' + size + '-maze');
+}
 
 
 
