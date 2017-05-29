@@ -9,6 +9,12 @@ Currently works best on Chrome desktop.
 Check the [LIVE DEMO](https://dimshik100.github.io/voice-controlled-maze/)
 
 
+## Dev
+
+- Run `npm install` to get all dependencies.
+- Run `gulp styles` if you want to generate the `main.css` file.
+- Run `gulp` if you want to watch for changes in SCSS files and update `main.css`.
+
 ## TODO
 
 - The maze should be controlled with:
