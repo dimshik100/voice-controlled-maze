@@ -212,22 +212,7 @@ function createMaze(size) {
 
 
 
-/**
- * UI buttons events
- */
 
-document.querySelector('.btn-down').addEventListener('click', function () { maze.moveDown() });
-document.querySelector('.btn-up').addEventListener('click', function () { maze.moveUp() });
-document.querySelector('.btn-right').addEventListener('click', function () { maze.moveRight() });
-document.querySelector('.btn-left').addEventListener('click', function () { maze.moveLeft() });
-
-document.querySelector('.btn-new-game').addEventListener('click', function () {
-  maze.newGame();
-});
-
-document.querySelector('.btn-restart').addEventListener('click', function () {
-  maze.restart();
-});
 
 
 

@@ -65,19 +65,44 @@ $(document).ready(function () {
   });
 
 
-$('.btn-info').on('click',function(){
-  swal({
-     title: 'Info',
-  text: '<div style="text-align:left">Developer: Dima Vishnevetsky (dimshik) <br> Designer: Jamil Jadon</div>',
-  html: true
-  });
-})
+  $('.btn-info').on('click', function () {
+    swal({
+      title: 'Info',
+      text: '<div style="text-align:left">Developer: Dima Vishnevetsky (dimshik) <br> Designer: Jamil Jadon</div>',
+      html: true
+    });
+  })
 
   /**
    * Creating the maze
    */
   updateBtnMazeSizeSelect('medium');
   maze = createMaze('medium');
+
+
+
+  /**
+   * UI buttons events
+   */
+
+  $('.btn-down').on('click', function () { maze.moveDown() });
+  $('.btn-up').on('click', function () { maze.moveUp() });
+  $('.btn-right').on('click', function () { maze.moveRight() });
+  $('.btn-left').on('click', function () { maze.moveLeft() });
+
+  $('.btn-new-game').on('click', function () {
+    maze.newGame();
+  });
+
+  $('.btn-intro-start').on('click', function () {
+    $('.intro-screen').hide();
+    maze.newGame();
+  });
+
+  $('.btn-restart').on('click', function () {
+    maze.restart();
+  });
+
 
 });
 
