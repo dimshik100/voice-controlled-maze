@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 
-<link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
+  <link rel="stylesheet" href="plugins/sweetalert/sweetalert.css">
 
   <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,10 +20,18 @@
 <body>
 
   <div class="intro-screen">
-      <p>Help the blue dot to get to the red square.
-        <br> Use the keyboard arrows or the buttons on the screen to navigate.
-        <br> <span class="hints"></span>
-      </p>
+    <div class="top-section">
+
+      <div class="logo"></div>
+      <h1>Voice controlled maze</h1>
+      <button class="btn btn-intro-start" title="New Game">conquer the maze</button>
+
+    </div>
+
+    <p>[Help the red dot to get to the yellow square.
+      <br> Use keyboard arrows or the buttons on the screen to navigate.
+      <br> <span class="hints"></span> ]
+    </p>
   </div>
 
   <div class="game-screen">
@@ -36,31 +44,35 @@
 
     <div class="game-section">
 
-
-
-
       <!--<ol class="commands-list"></ol>-->
+
+      <div class="game-options-section">
+        <!--<button class="stop-game-btn">Stop voice control</button>-->
+
+        <button class="btn btn-new-game btn-small" title="New Game"></button>
+        <div class="maze-select-wrapper">
+          <button class="btn btn-maze-size-select btn-small" title="Select Maze Size"></button>
+          <div class="maze-size-buttons">
+            <button class="btn icon-small-maze btn-small btn-maze-size" data-size="small" title="Play Easy Maze">Easy</button>
+            <button class="btn icon-medium-maze btn-small btn-maze-size" data-size="medium" title="Play Medium Maze">Medium</button>
+            <button class="btn icon-large-maze btn-small btn-maze-size" data-size="large" title="Play Hard Maze">Hard</button>
+          </div>
+        </div>
+        <button class="btn btn-restart btn-small" title="Restart Maze"></button>
+
+      </div>
+
       <div class="maze-wrapper">
         <div id='maze'></div>
       </div>
-    
-        <div>
-          <!--<button class="stop-game-btn">Stop voice control</button>-->
 
-          <button class="btn btn-restart btn-small" title="Restart Maze"></button>
-          
+      <div class="controls-section">
+
+
+        <div class="speech-wrapper">
+          <button class="btn btn-large btn-speak mic" title="Click to speak"></button>
+          <p class="output"><em>...diagnostic messages</em></p>
         </div>
-
-
-<div class="maze-size-select-wrapper">
-  <button class="btn btn-new-game btn-small" title="New Game"></button>
-  <button class="btn btn-maze-size-select btn-small" title="Select Maze Size"></button>
-  <div class="maze-size-buttons">
-  <button class="btn icon-small-maze btn-small btn-maze-size" data-size="small" title="Play Easy Maze">Easy</button>
-  <button class="btn icon-medium-maze btn-small btn-maze-size" data-size="medium" title="Play Medium Maze">Medium</button>
-  <button class="btn icon-large-maze btn-small btn-maze-size" data-size="large" title="Play Hard Maze">Hard</button>
-  </div>
-</div>
 
         <div class="arrow-buttons-wrapper">
           <div class="btn-row">
@@ -73,22 +85,13 @@
           </div>
 
         </div>
-
-
-
-
-      <div class="speech-wrapper">
-        <button class="btn btn-large btn-speak mic" title="Click to speak"></button>
-        <p class="output"><em>...diagnostic messages</em></p>
       </div>
 
     </div>
   </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
 
   <script src="app.js"></script>
   <script src="maze.js"></script>

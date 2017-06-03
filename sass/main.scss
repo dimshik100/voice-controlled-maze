@@ -1,17 +1,18 @@
 @import 'reset';
+@import 'media-query-mixins';
 @import 'colors';
 @import 'header';
 @import 'buttons';
 @import 'speech';
 @import 'maze';
 @import 'sweetalert-overides';
+@import 'intro-screen';
 html {
     height: 100%;
 }
 
 body {
-    height: inherit;
-    // overflow: hidden;
+    height: inherit; // overflow: hidden;
     background-color: $grey;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -29,6 +30,11 @@ body {
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    @include for-phone-only {
+        height: 67px;
+        padding: 10px;
+    }
     .logo {
         height: 100%;
         width: 90px;
@@ -40,6 +46,10 @@ body {
         font-weight: 600;
         font-size: 1.7em;
         line-height: 1.7em;
+        @include for-phone-only {
+            font-weight: 400;
+            font-size: 0.9em;
+        }
     }
     .btn-info {
         margin: 0;
@@ -54,6 +64,14 @@ body {
     left: 0;
     width: 100%;
     padding: 25px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include for-phone-only {
+        padding: 10px;
+        top: 67px;
+    }
 }
 
 .hints span {
@@ -71,37 +89,56 @@ body {
 
 .maze-wrapper {
     display: flex;
+    margin: 10px;
+    @include for-phone-only {
+       
+    }
 }
 
 .arrow-buttons-wrapper {
-    position: absolute;
-    bottom: 40px;
-    right: 40px;
+
     .btn-row {
         display: flex;
         justify-content: center;
     }
-}
-
-.maze-size-select-wrapper {
-    position: absolute;
-    top: 25px;
-    left: 40px;
-    display: flex;
-    flex-direction: column;
-
-    .maze-size-buttons {
+    @include for-phone-only {
         display: none;
-        
-        &.show {
-            display: flex;
-            flex-direction: column;
-        }
     }
 }
 
-.btn-restart {
-    position: absolute;
-    top:25px;
-    right: 40px;
+.maze-size-buttons {
+    display: none;
+        position: absolute;
+    top: 0;
+    left: 58px;
+    background-color: $grey;
+    &.show {
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+.game-options-section {
+    display: flex;
+    justify-content: flex-start;
+    .btn-restart {
+        margin-left: auto;
+    }
+}
+
+.controls-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+        align-items: flex-end;
+
+@include for-phone-only {
+    justify-content: center;
+}
+
+}
+
+.maze-select-wrapper {
+    position: relative;
+}
+

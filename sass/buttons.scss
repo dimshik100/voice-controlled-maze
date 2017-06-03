@@ -58,8 +58,25 @@
         margin: 10px;
     }
     &.btn-maze-size {
-        text-indent: 55px;
-        font-size: 1em;
+       
+    font-size: 1em;
+    font-weight: 600;
+    width: initial;
+    padding-left: 46px;
+    background-position: 4px;
+    text-align: left;
+    padding-right: 5px;
+    }
+    &.btn-intro-start {
+        font-size: 1.8em;
+        text-transform: uppercase;
+        padding: 10px;
         font-weight: 600;
+        font-family: 'Noto Sans', sans-serif;
+            margin-top: 4em;
+
+        @include for-phone-only {
+            font-size: 1em;
+        }
     }
 }
