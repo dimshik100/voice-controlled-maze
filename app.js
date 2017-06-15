@@ -18,7 +18,7 @@ recognition.maxAlternatives = 1;
 
 var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('html');
-var hints = document.querySelector('.hints');
+
 // var commandsList = document.querySelector('.commands-list');
 var speakBtn = document.querySelector('.btn-speak');
 var stopGameBtn = document.querySelector('.stop-game-btn');
@@ -31,7 +31,6 @@ commands.forEach(function (v, i, a) {
   // commandsHTML += '<span> ' + v + ' </span>';
   commandsHTML += ' ' + v + ' ';
 });
-hints.innerHTML = 'say a command to play or restart the game. Try ' + commandsHTML + '.';
 
 // document.body.onclick = function() {
 //   recognition.start();
@@ -52,10 +51,14 @@ $(document).ready(function () {
   var mazeSizeButtons = $('.maze-size-buttons');
   var btnMazeSelect = $('.btn-maze-size-select');
 
-
   btnMazeSelect.on('click', function () {
     mazeSizeButtons.toggleClass('show');
   });
+
+
+$('.logo').on('click',function(){
+  location.reload();
+});
 
 
   $('.btn-maze-size').on('click', function () {
@@ -68,7 +71,11 @@ $(document).ready(function () {
   $('.btn-info').on('click', function () {
     swal({
       title: 'Info',
-      text: '<div style="text-align:left">Developer: Dima Vishnevetsky (dimshik) <br> Designer: Jamil Jadon</div>',
+      text: '<div style="text-align:left">' + 
+      $('.info-text').html() +
+      '<br><br>\
+      <strong>Developer:</strong> <a href="http://www.dimshik.com">Dima Vishnevetsky</a> (dimshik) \
+      <br> <strong>Designer:</strong> Jamil Jadon</div>',
       html: true
     });
   })
