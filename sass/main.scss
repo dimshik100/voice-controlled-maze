@@ -67,15 +67,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     @include for-phone-only {
         padding: 10px;
         top: 67px;
     }
-}
-
-.hints span {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.7);
 }
 
 
@@ -90,13 +85,10 @@ body {
 .maze-wrapper {
     display: flex;
     margin: 10px;
-    @include for-phone-only {
-       
-    }
+    @include for-phone-only {}
 }
 
 .arrow-buttons-wrapper {
-
     .btn-row {
         display: flex;
         justify-content: center;
@@ -108,10 +100,11 @@ body {
 
 .maze-size-buttons {
     display: none;
-        position: absolute;
+    position: absolute;
     top: 0;
     left: 58px;
-    background-color: $grey;
+    z-index: 2;
+    // background-color: $grey;
     &.show {
         display: flex;
         flex-direction: column;
@@ -130,15 +123,26 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-        align-items: flex-end;
-
-@include for-phone-only {
-    justify-content: center;
-}
-
+    align-items: flex-end;
+    @include for-phone-only {
+        justify-content: center;
+    }
 }
 
 .maze-select-wrapper {
     position: relative;
 }
 
+.desktop-commands-info {
+    display: inline;
+    @include for-phone-only {
+        display: none;
+    }
+}
+
+.mobile-commands-info {
+    display: none;
+    @include for-phone-only {
+        display: inline;
+    }
+}
